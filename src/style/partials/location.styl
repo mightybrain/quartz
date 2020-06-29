@@ -1,0 +1,375 @@
+.location
+    position relative
+    margin-top 94px
+    width 100%
+    height 600vh
+    background-color main-blue
+    overflow hidden
+    @media phone
+        margin-top 80px
+        height auto
+
+    &__container
+        position absolute
+        top 0
+        left 0
+        box-sizing border-box
+        width 100%
+        height 100vh
+        padding-top 95px
+        @media phone
+            position static
+            height auto
+            padding-top 80px
+
+    &__route
+        position absolute
+        top 0
+        right 0
+        width 100%
+        height 100%
+        overflow hidden
+        @media phone
+            display none
+
+        & svg
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%, -50%)
+
+    &__text-wrapper
+        position relative
+        width 1050px
+        margin 0 auto
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+            margin 0 auto 50px auto
+
+    &__text
+        position absolute
+        top 0
+        left 0
+        width calc(50% - 25px)
+        transition opacity .5s 0s ease
+        cursor default
+        @media laptop
+            width calc(50% - 16px)
+        @media phone
+            position static
+            width 100%
+
+        &--01
+            opacity 1
+
+        &--02
+            opacity 0
+            @media phone
+                opacity 1
+
+        &--03
+            opacity 0
+            @media phone
+                display none
+
+    &__text + &__text
+        @media phone
+            margin-top 27px
+
+    &__placemark
+        position relative
+        z-index 0
+        display inline-block
+        width 17px
+        height 17px
+        margin-right 7px
+        font-family "Montserrat"
+        font-size 13px
+        line-height 16px
+        font-weight 300
+        color black
+        text-align center
+
+        &::before
+            content ""
+            position absolute
+            top -2px
+            left 0
+            z-index -1
+            display block
+            width 17px
+            height 17px
+            background-color white
+            border-radius 8.5px
+
+        &--02
+            margin-left 7px
+
+    &__map-container
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background-color black
+        opacity 0
+        visibility hidden
+        transition opacity 1s 0s ease, visibility 0s 1s linear
+        @media phone
+            position static
+            height 300px
+            opacity 1
+            visibility visible
+
+    &__map
+        width 100%
+        height 100%
+        opacity .75
+
+    &__map-button
+        position absolute
+        bottom 100px
+        left 50%
+        transform translateX(-50%)
+        padding 10px 20px 9px 20px
+        background none
+        background-color white
+        border none
+        border-radius 19px
+        outline none
+        cursor pointer
+        transition background-color .3s 0s ease, color .3s 0s ease
+        @media laptop
+            bottom 80px
+        @media tablet-portrait
+            left 30px
+            transform none
+        @media phone
+            display none
+
+        &::before
+            content "Показать расположение на карте"
+            font-family "Montserrat"
+            font-size 15px
+            line-height 19px
+            font-weight 500
+            color black
+
+        &:hover
+            background-color deep-blue
+
+            &::before
+                color white
+
+.location__map-container.js-map-is-visible
+    opacity 1
+    visibility visible
+    transition opacity 1s 0s ease, visibility 0s 0s linear
+
+    & + .location__map-button::before
+        content "Скрыть карту"
+
+.location__container
+    & .country-border
+        fill main-blue
+        stroke lightest-blue
+        stroke-width 1.5px
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .main-pin
+        fill white
+        stroke none
+        transform-origin 860px 611px
+        transform scale(1)
+        transition fill .5s .5s ease, transform 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .region
+        fill transparent
+        stroke none
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease, fill 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .route
+        fill none
+        stroke transparent
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease, stroke 1s 0s ease, stroke-width 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .global-text,
+    & .global-pin
+        fill transparent
+        stroke none
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease, fill 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .local-text,
+    & .local-pin
+        fill transparent
+        stroke none
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease, fill 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+    & .local-number
+        fill transparent
+        stroke none
+        transform-origin 860px 611px
+        transform scale(1)
+        transition transform 1s 0s ease, fill 1s 0s ease
+        @media laptop
+            transform scale(.75)
+
+.location__container.js-scale-2
+    & .location__text--01,
+    & .location__text--03
+        opacity 0
+
+    & .location__text--02
+        opacity 1
+
+    & .country-border
+        fill light-blue
+        stroke main-blue
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+    & .main-pin
+        fill transparent
+        transform scale(18)
+        transition fill .5s 0s ease, transform 1s 0s ease
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+    & .region
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+    & .route
+        stroke white
+        stroke-width .1px
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+    & .global-text,
+    & .global-pin
+        fill white
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+    & .local-text,
+    & .local-pin
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+    
+    & .local-number
+        transform scale(18)
+        @media laptop
+            transform translateY(-3%) scale(15)
+        @media tablet-portrait
+            transform translate(-5%, -3%) scale(15)
+
+.location__container.js-scale-3
+    & .location__text--01,
+    & .location__text--02
+        opacity 0
+
+    & .location__text--03
+        opacity 1
+
+    & .country-border
+        fill light-blue
+        stroke main-blue
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .main-pin
+        fill transparent
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .region
+        fill lightest-blue
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .route
+        stroke white
+        stroke-width .01px
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .global-text,
+    & .global-pin
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .local-text,
+    & .local-pin
+        fill white
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+
+    & .local-number
+        fill black
+        transform translateX(-170%) scale(240)
+        @media laptop
+            transform translate(-120%, -5%) scale(180)
+        @media tablet-portrait
+            transform translate(-130%, 0%) scale(180)
+

@@ -1,0 +1,54 @@
+.row-slider
+    width 1050px
+    overflow visible
+    @media laptop
+        width 856px
+    @media tablet-portrait
+        width calc(100% - 60px)
+    @media phone
+        width calc(100% - 40px)
+
+    &__list
+        display flex
+        flex-wrap nowrap
+        height auto
+        margin 0
+        padding 0
+        list-style none
+
+    &__item
+        position relative
+        flex-shrink 0
+        width 500px
+        height 314px
+        border-radius 0 0 0 105px
+        overflow hidden
+        @media laptop
+            width 412px
+            height 260px
+        @media phone
+            width calc(100% - 20px)
+            max-width 412px
+            border-radius 0
+
+        &:not(:nth-last-child(1))
+            margin-right 50px
+            @media laptop
+                margin-right 32px
+            @media phone
+                margin-right 20px
+
+    &__image
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        display block
+        min-width 100%
+        max-width 100%
+        @media phone
+            min-width auto
+            max-width none
+            min-height 100%
+            max-height 100%
+        

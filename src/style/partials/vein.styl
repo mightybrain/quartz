@@ -1,0 +1,38 @@
+.vein
+    width 100%
+    padding 95px 0 100px 0
+    background-color main-blue
+    overflow hidden
+    @media phone
+        padding 80px 0
+
+    &__cols
+        display flex
+        flex-wrap nowrap
+        justify-content space-between
+        width 1050px
+        margin 0 auto
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            flex-direction column
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+
+    &__col
+        width calc(50% - 25px)
+        @media laptop
+            width calc(50% - 16px)
+        @media tablet-portrait
+            width 100%
+
+    &__col + &__col
+        @media tablet-portrait
+            margin-top 24px
+
+    &__link-wrapper
+        margin-top 29px
+
+    &__gallery
+        margin 73px auto 0 auto

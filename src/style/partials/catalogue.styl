@@ -1,0 +1,241 @@
+.catalogue
+    width 100%
+    overflow hidden
+
+    &__heading-wrapper
+        width 1050px
+        margin 0 auto 24px auto
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+
+    &__cols
+        display flex
+        justify-content space-between
+        align-items flex-start
+        width 1050px
+        margin 0 auto
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            flex-direction column
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+
+    &__col
+        width calc(50% - 25px)
+        @media laptop
+            width calc(50% - 16px)
+        @media tablet-portrait
+            width 100%
+
+    &__col + &__col
+        @media tablet-portrait
+            margin-top 24px
+
+    &__buttons-list
+        display flex
+        flex-wrap nowrap
+        margin 14px 0 0 0 
+        padding 0
+        list-style none
+
+    &__buttons-item + &__buttons-item
+        margin-left 30px
+
+    &__download-link
+        margin-right 10px
+
+    &__press-button
+        @media phone
+            display none
+
+    &__products
+        width 1050px
+        margin 43px auto 50px auto
+        overflow visible
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+            margin 43px auto 0 auto
+
+    &__products-list
+        display flex
+        flex-wrap nowrap
+        height auto
+        margin 0
+        padding 0
+        list-style none
+        @media phone
+            flex-direction column
+            width 100%
+
+    &__products-item
+        flex-shrink 0
+
+        &:not(:nth-last-child(1))
+            margin-right 50px
+            @media laptop
+                margin-right 32px
+            @media phone
+                margin 0 0 20px 0
+
+    &__table-wrapper
+        width calc(100% - 60px)
+        margin 0 auto
+        @media phone
+            display none
+
+    &__table-scroller
+        margin-bottom 15px
+        overflow-x auto
+
+    &__table
+        margin 0 auto
+
+    &__table-hint
+        display block
+        width 100%
+        text-align center
+        @media tablet-portrait
+            text-align left
+
+.catalogue__table
+    border 2px solid light-gray
+    border-collapse collapse
+
+    & tr
+        color black
+        background-color transparent
+        transition background-color .3s 0s ease, color .3s 0s ease
+
+    & th
+        box-sizing border-box
+        min-width 95px
+        padding 9px 20px 7px 20px
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 600
+        color black
+        text-align left
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+        @media tablet-landscape-medium
+            min-width auto
+
+        &:not(:nth-last-child(1))
+            border-right 1px solid light-gray
+
+    & td
+        box-sizing border-box
+        min-width 95px
+        padding 10px 20px 9px 20px
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color inherit
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+        @media tablet-landscape-medium
+            min-width auto
+
+        &:nth-child(1)
+            font-weight 600
+
+        &:not(:nth-last-child(1))
+            border-right 1px solid light-gray
+            transition border .3s 0s ease
+
+tr.js-is-highlighted
+    background-color main-blue
+    color white
+
+    & td:not(:nth-last-child(1))
+        border-right 1px solid light-blue
+
+.product-preview
+    box-sizing border-box
+    width 500px
+    min-height 314px
+    height auto
+    padding 24px 50px 30px 50px
+    border 2px solid light-gray
+    border-radius 0 0 105px 0
+    color black
+    transition border .3s 0s ease, background-color .3s 0s ease, color .3s 0s ease
+    @media laptop
+        width 412px
+        min-height 216px
+    @media phone
+        width 100%
+        min-height auto
+        padding 30px
+        border-radius 0
+
+    &:hover
+        border 2px solid deep-blue
+        background-color deep-blue
+        color white
+
+    &__heading
+        display block
+        margin-bottom 13px
+        font-family "Montserrat"
+        font-size 18px
+        line-height 24px
+        font-weight 600
+
+    &__link
+        color inherit
+        text-decoration none
+        border-bottom 1px solid black
+        transition border .3s 0s ease 
+
+        &:hover
+            border-bottom 1px solid transparent
+
+    &__prop
+        display block
+        margin-bottom 14px
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color inherit
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+    &__description
+        margin 0
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color inherit
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+    &__description + &__description
+        margin-top 24px
+
+.product-preview:hover
+    & .product-preview__link
+        border-bottom 1px solid white
+
+        &:hover
+            border-bottom 1px solid transparent
+        
+    

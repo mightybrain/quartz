@@ -1,0 +1,250 @@
+.hidden-block
+    position fixed
+    top 0
+    left 0
+    z-index 2
+    width 100%
+    height 100%
+    overflow hidden
+    opacity 0
+    visibility hidden
+    transition opacity 1s .5s ease, visibility 0s 1.5s linear
+
+    &__background
+        position absolute
+        top 0
+        left 0
+        z-index 01
+        width 100%
+        height 100%
+        background-color main-blue
+
+    &__close-button
+        position absolute
+        top 26px
+        right 30px
+        z-index 2
+        width 30px
+        height 30px
+        cursor pointer
+        opacity 0
+        visibility hidden
+        transition opacity .5s 0s ease, visibility 0s .5s linear
+
+        &::before
+            content ""
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%, -50%) rotate(45deg)
+            display block
+            width 100%
+            height 2px
+            background-color white
+            transition width .7s 0s ease
+
+        &::after
+            content ""
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%, -50%) rotate(-45deg)
+            display block
+            width 100%
+            height 2px
+            background-color white
+            transition width .7s .1s ease
+
+    &__container
+        position absolute
+        top 0
+        left 0
+        z-index 1
+        display flex
+        flex-direction column
+        align-items center
+        width calc(100% + 17px)
+        height 100%
+        overflow auto
+        @media tablet-portrait
+            width 100%
+
+    &__popup
+        position absolute
+        top 100px
+        left 50%
+        transform translateX(-50%)
+        display none
+        margin-bottom 100px
+        opacity 0
+        visibility hidden
+        transition opacity .5s 0s ease, visibility 0s .5s linear
+
+.popup
+    width 1050px
+    @media laptop
+        width 856px
+    @media tablet-portrait
+        width calc(100% - 60px)
+        max-width 600px
+    @media phone
+        width calc(100% - 40px)
+
+    &--search
+        width 754px
+        @media tablet-portrait
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+
+    &__text
+        margin-bottom 64px
+
+    &__heading
+        margin-bottom 23px
+
+.form
+    width 100%
+
+    &__cols
+        display flex
+        flex-wrap nowrap
+        justify-content space-between
+        width 100%
+        @media tablet-portrait
+            flex-direction column
+        
+    &__col
+        display flex
+        flex-direction column
+        flex-wrap nowrap
+        width calc(50% - 25px)
+        @media laptop
+            width calc(50% - 16px)
+        @media tablet-portrait
+            width 100%
+
+    &__col + &__col
+        @media tablet-portrait
+            margin-top 51px
+
+    &__group
+        position relative
+        flex-grow 1
+        width 100%
+
+    &__group + &__group
+        margin-top 51px
+
+    &__label
+        position absolute
+        top -24px
+        display block
+        margin-bottom 5px
+        font-family "Montserrat"
+        font-size 14px
+        line-height 20px
+        font-weight 300
+        color gray-blue
+
+    &__req-sign
+        margin-left 4px
+        font-size 15px
+        color white
+
+    &__input
+        display block
+        box-sizing border-box
+        width 100%
+        height 38px
+        padding 0 10px
+        font-family "Montserrat"
+        font-size 15px
+        line-height 21px
+        font-weight 300
+        color white
+        background none
+        border 2px solid medium-blue
+        outline none
+
+    &__search-input
+        display block
+        box-sizing border-box
+        width 100%
+        height 56px
+        padding 0
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color white
+        background none
+        border none
+        border-bottom 2px solid white
+        outline none
+
+        &::placeholder
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 300
+            color gray-blue
+
+    &__textarea
+        display block
+        box-sizing border-box
+        width 100%
+        height 100%
+        padding 10px
+        font-family "Montserrat"
+        font-size 15px
+        line-height 21px
+        font-weight 300
+        color white
+        background none
+        border 2px solid medium-blue
+        outline none
+        resize none
+        @media tablet-portrait
+            height 200px
+
+    &__submit-button
+        margin-top 40px
+
+    &__search-submit-button
+        position absolute
+        top 15px
+        right -6px
+        background none
+        border none
+        outline none
+        cursor pointer
+
+        & svg 
+            fill none 
+            stroke white
+            stroke-width 1px
+
+body.js-popup-is-open
+    overflow-y hidden
+
+    & .hidden-block
+        opacity 1
+        visibility visible
+        transition opacity 1s 0s ease, visibility 0s 0s linear
+
+    & .hidden-block__close-button
+        opacity 1
+        visibility visible
+        transition opacity .5s 1s ease, visibility 0s 1s linear
+
+.hidden-block__popup.js-popup-is-active
+    display block
+    opacity 1
+    visibility visible
+    transition opacity .5s 1s ease, visibility 0s 1s linear
+
+.form__group.js-valid-error
+    & .form__input,
+    & .form__textarea
+        border 2px solid light-red

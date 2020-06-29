@@ -1,0 +1,148 @@
+svg path,
+svg line,
+svg rect,
+svg polygon,
+svg circle
+    fill inherit !important
+    stroke inherit !important
+    stroke-width inherit !important
+
+.common
+    &__h1-heading
+        margin 0
+        font-family "Montserrat"
+        font-size 48px
+        line-height 52px
+        font-weight 600
+        color black
+        @media laptop
+            font-size 36px
+            line-height 40px
+        @media phone
+            font-size 24px
+            line-height 28px
+
+        &--white
+            color white
+
+    &__description
+        display block
+        margin 0
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color black
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+        &--large
+            font-size 30px
+            line-height 34px
+            font-weight 600
+            @media desktop-small
+                font-size 24px
+                line-height 30px
+            @media phone
+                font-size 20px
+                line-height 24px
+
+        &--small
+            font-size 15px
+            line-height 21px
+            @media desktop-small
+                font-size 14px
+                line-height 20px
+
+        &--white
+            color white
+
+    &__description:not(&__description--large):not(&__description--small) + &__description:not(&__description--large):not(&__description--small)
+        margin-top 24px
+
+    &__description--large + &__description:not(&__description--large):not(&__description--small)
+        margin-top 27px
+
+    &__description:not(&__description--large):not(&__description--small) + &__description--large
+        margin-top 29px
+
+    &__description--small + &__description--small
+        margin-top 20px
+
+    &__link
+        display inline-block
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 300
+        color black
+        text-decoration none
+        border-bottom 1px solid black
+        transition border .3s 0s ease
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+        &--white
+            color white
+            border-bottom 1px solid white
+
+        &:hover
+            border-bottom 1px solid transparent
+
+    &__link-hint
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 500
+        color gray
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+    &__button-link
+        padding 0
+        background none
+        border none
+        border-bottom 1px solid black
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 500
+        color black
+        outline none
+        cursor pointer
+        transition border .3s 0s ease
+        @media desktop-small
+            font-size 15px
+            line-height 21px
+
+        &:hover
+            border-bottom 1px solid transparent
+
+    &__button
+        padding 10px 20px 9px 20px
+        background none
+        background-color main-blue
+        border none
+        border-radius 19px
+        font-family "Montserrat"
+        font-size 15px
+        line-height 19px
+        font-weight 500
+        color white
+        outline none
+        cursor pointer
+        transition background-color .3s 0s ease, color .3s 0s ease
+
+        &--white
+            background-color white
+            color black
+
+        &:hover
+            background-color deep-blue
+            color white
+
+.common__description .common__link
+    margin 0 5px
