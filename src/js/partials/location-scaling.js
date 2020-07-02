@@ -13,16 +13,20 @@
 
     };
 
-    window.addEventListener("scroll", function(){
+    if(scalingContainer && scalingElement){
+        window.addEventListener("scroll", function(){
 
-        if(scalingEnable){
-            changeScale(scalingContainer, scalingElement);
-        };
+            if(scalingEnable){
+                changeScale(scalingContainer, scalingElement);
+            };
+    
+        });
+    
+        window.addEventListener("load", checkScaling);
+        window.addEventListener("resize", checkScaling);
 
-    });
+    };
 
-    window.addEventListener("load", checkScaling);
-    window.addEventListener("resize", checkScaling);
 
     function checkScaling(){
 

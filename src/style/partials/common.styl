@@ -6,6 +6,14 @@ svg circle
     fill inherit !important
     stroke inherit !important
     stroke-width inherit !important
+    
+.default
+    width 1050px
+    margin 31px auto 100px auto
+    @media laptop
+        width 856px
+    @media tablet-portrait
+        width calc(100% - 60px)
 
 .common
     &__h1-heading
@@ -143,6 +151,196 @@ svg circle
         &:hover
             background-color deep-blue
             color white
+
+    &__wysiwyg
+        width 100%
+
+        & h2:not([class])
+            margin 0 0 23px 0
+            font-family "Montserrat"
+            font-size 48px
+            line-height 52px
+            font-weight 600
+            color black
+
+        & h3:not([class])
+            margin 0 0 26px 0
+            font-family "Montserrat"
+            font-size 36px
+            line-height 40px
+            font-weight 600
+            color black
+
+        & p:not([class]) + h2:not([class]),
+        & img:not([class]) + h2:not([class]),
+        & ul:not([class]) + h2:not([class]),
+        & ol:not([class]) + h2:not([class]),
+        & div + h2:not([class]),
+        & p:not([class]) + h3:not([class]),
+        & img:not([class]) + h3:not([class]),
+        & ul:not([class]) + h3:not([class]),
+        & ol:not([class]) + h3:not([class]),
+        & div + h3:not([class])
+            margin-top 67px
+
+        & p:not([class])
+            margin 0
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 300
+            color black
+
+        & p:not([class]) + p:not([class]),
+        & img:not([class]) + p:not([class]),
+        & ol:not([class]) + p:not([class]),
+        & ul:not([class]) + p:not([class]),
+        & div + p:not([class])      
+            margin-top 24px
+
+        & li:not([class])
+            position relative
+            left 30px
+            margin 0
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 300
+            color black
+
+        & li:not([class]) + li:not([class])
+            margin-top 6px
+
+        & ul:not([class]) 
+            margin 0
+            padding 0
+            list-style none
+
+            & li:not([class])::before
+                content ""
+                position absolute
+                top 11px
+                left -30px
+                display block
+                width 20px
+                height 1px
+                background-color main-blue
+
+        & ol:not([class])
+            margin 0
+            padding 0
+            list-style none
+            counter-reset default
+
+            & li:not([class])
+                counter-increment counter 
+
+            & li:not([class])::before
+                content counter(counter)"."
+                position absolute
+                top 0px
+                left -30px
+                font-family "Montserrat"
+                font-size 17px
+                line-height 23px
+                font-weight 300
+                color main-blue
+
+        & ol:not([class]) + ol:not([class]),
+        & p:not([class]) + ol:not([class]),
+        & img:not([class]) + ol:not([class]),
+        & ul:not([class]) + ol:not([class]),
+        & div + ol:not([class]),
+        & ul:not([class]) + ul:not([class]),
+        & p:not([class]) + ul:not([class]),
+        & img:not([class]) + ul:not([class]),
+        & ol:not([class]) + ul:not([class]),
+        & div + ul:not([class])
+            margin-top 24px
+
+        & img:not([class])
+            display block
+            margin 0
+
+        & img:not([class]) + img:not([class])
+            margin-top 10px
+        
+        & p:not([class]) + img:not([class]),
+        & ul:not([class]) + img:not([class]),
+        & ol:not([class]) + img:not([class]),
+        & div + img:not([class])
+            margin-top 34px
+
+        & a:not([class])
+            display inline
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 300
+            color main-blue
+            text-decoration none
+            border-bottom 1px solid main-blue
+            outline none
+            transition border .3s 0s ease
+
+            &:hover
+                border-bottom 1px solid transparent
+
+        & table:not([class])
+            border 2px solid light-gray
+            border-collapse collapse
+
+            & tr:not(:nth-last-child(1))
+                    border-bottom 1px solid light-gray
+
+            & th
+                box-sizing border-box
+                max-width 200px
+                padding 9px 20px 7px 20px
+                font-family "Montserrat"
+                font-size 17px
+                line-height 23px
+                font-weight 600
+                color black
+                text-align left
+                vertical-align top
+                @media desktop-small
+                    font-size 15px
+                    line-height 21px
+
+                &:not(:nth-last-child(1))
+                    border-right 1px solid light-gray
+
+            & td
+                box-sizing border-box
+                max-width 200px
+                padding 10px 20px 9px 20px
+                font-family "Montserrat"
+                font-size 17px
+                line-height 23px
+                font-weight 300
+                color black
+                vertical-align top
+                @media desktop-small
+                    font-size 15px
+                    line-height 21px
+
+                &:not(:nth-last-child(1))
+                    border-right 1px solid light-gray
+                    transition border .3s 0s ease
+
+        & p:not([class]) + div,
+        & ul:not([class]) + div,
+        & ol:not([class]) + div,
+        & div + div
+            margin-top 34px
+
+    &__table-wrapper
+        width 100%
+        overflow hidden
+
+    &__table-scroller
+        overflow-x auto
 
 .common__description .common__link
     margin 0 5px

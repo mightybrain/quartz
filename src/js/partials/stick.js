@@ -26,16 +26,20 @@
     
     let stickyEnable = false;
 
-    window.addEventListener("scroll", function(){
+    if(stickyContainer && stickyElement){
+        window.addEventListener("scroll", function(){
 
-        if(stickyEnable){
-            stick(stickyContainer, stickyElement);
-        };
+            if(stickyEnable){
+                stick(stickyContainer, stickyElement);
+            };
+    
+        });
+    
+        window.addEventListener("load", checkSticky);
+        window.addEventListener("resize", checkSticky);
+        
+    };
 
-    });
-
-    window.addEventListener("load", checkSticky);
-    window.addEventListener("resize", checkSticky);
 
     function checkSticky(){
 

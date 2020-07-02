@@ -1,0 +1,52 @@
+.inner-intro
+    width 1050px
+    margin 0 auto
+    padding 254px 0 0px 0
+    @media laptop
+        width 856px
+    @media tablet-portrait
+        width calc(100% - 60px)
+
+    &__heading
+        margin 18px 0 0 0
+        font-family "Montserrat"
+        font-size 60px
+        line-height 64px
+        font-weight 600
+        color black
+
+.breadcrumps
+    &__list
+        display flex
+        flex-wrap nowrap
+        padding 0
+        margin 0
+        list-style none
+
+    &__item
+        font-family "Montserrat"
+        font-size 14px
+        line-height 20px
+        font-weight 300
+        color gray
+
+        &::after
+            content "/"
+            margin 0 10px
+            font-family "Montserrat"
+            font-size 14px
+            line-height 20px
+            font-weight 300
+            color gray
+
+    &__link
+        text-decoration none
+        color inherit
+        border-bottom 1px solid gray
+        outline none
+        transition border .3s 0s ease
+
+        &:hover
+            border-bottom 1px solid transparent
+
+        

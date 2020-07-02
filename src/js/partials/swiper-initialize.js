@@ -71,7 +71,7 @@
             productsSwiper.destroy();
             productsSwiperEnable = false;
 
-        }else if(document.documentElement.clientWidth > 600 && !productsSwiperEnable){
+        }else if(document.documentElement.clientWidth > 600 && document.querySelector(".js-products-slider") && !productsSwiperEnable){
             productsSwiperInit();
         };
 
