@@ -138,35 +138,35 @@ html(lang="ru")
                                     th
                                         |
                                     th
-                                        |RQ-2KFf
+                                        |RQ&#8209;2KFf
                                     th
-                                        |RQ-2Ki
+                                        |RQ&#8209;2Ki
                                     th
-                                        |RQ-3K
+                                        |RQ&#8209;3K
                                     th
-                                        |RQ-2Kf
+                                        |RQ&#8209;2Kf
                                     th
-                                        |RQ-2K
+                                        |RQ&#8209;2K
                                     th
-                                        |RQ-1K
+                                        |RQ&#8209;1K
                                 tr
                                     td
-                                        |Основная фракция, мкм
+                                        |Основная фракция,&nbsp;мкм
                                     td
-                                        |100 – 300
+                                        |100&nbsp;&#8209;&nbsp;300
                                     td
-                                        |100 – 300
+                                        |100&nbsp;&#8209;&nbsp;300
                                     td
-                                        |100 – 300
+                                        |100&nbsp;&#8209;&nbsp;300
                                     td
-                                        |75 – 165
+                                        |75&nbsp;&#8209;&nbsp;165
                                     td
-                                        |75 – 300
+                                        |75&nbsp;&#8209;&nbsp;300
                                     td
-                                        |75 – 300
+                                        |75&nbsp;&#8209;&nbsp;300
                                 tr
                                     td
-                                        |Массовая доля основной фракции, %
+                                        |Массовая доля основной фракции,&nbsp;%
                                     td
                                         |97
                                     td
@@ -181,7 +181,7 @@ html(lang="ru")
                                         |97
                                 tr
                                     td
-                                        |Мельче, не более, %
+                                        |Мельче, не более,&nbsp;%
                                     td
                                         |2
                                     td
@@ -196,7 +196,7 @@ html(lang="ru")
                                         |1,5
                                 tr
                                     td
-                                        |Крупнее, не более, %
+                                        |Крупнее, не более,&nbsp;%
                                     td
                                         |1
                                     td
@@ -212,58 +212,8 @@ html(lang="ru")
                     p
                         |Помимо выпускаемой базовой номенклатуры продукции, наше предприятие готово рассмотреть запросы на поставку кварцевых концентратов с характеристиками, необходимыми заказчику и отличающимися от характеристик базовых сортов.
         //= partials/footer.pug
-        section.hidden-block
-            div.hidden-block__background
-            div.hidden-block__close-button.js-close-popup-button
-            div.hidden-block__container
-                div.popup.popup--search.hidden-block__popup(data-popup="search")
-                    form.form
-                        div.form__group
-                            input.form__search-input(placeholder="Поиск по сайту" type="text" autocomplete="off" data-req)
-                            button.form__search-submit-button.js-submit
-                                svg(width="22" height="22")
-                                    use(xlink:href="#search-icon")
-                div.popup.hidden-block__popup(data-popup="feedback")
-                    div.popup__text
-                        h1.common__h1-heading.common__h1-heading--white.popup__heading
-                            |Связаться с нами
-                        p.common__description.common__description--white
-                            |Обратите внимание, отправляя данную форму, вы даете согласие на обработку
-                            a.common__link.common__link--white(href="")
-                                |персональных данных
-                            |. Поля со звездочкой «*» – обязательны для заполнения.
-                    form.form
-                        div.form__cols
-                            div.form__col
-                                div.form__group
-                                    label.form__label(for="")
-                                        |Ваше имя
-                                        span.form__req-sign
-                                            |*
-                                    input.form__input(type="text" data-req name="name" autocomplete="off")
-                                div.form__group
-                                    .form__label(for="")
-                                        |Электронная почта
-                                        span.form__req-sign
-                                            |*
-                                    input.form__input(type="text" data-req name="mail" autocomplete="off")
-                                div.form__group
-                                    label.form__label(for="")
-                                        |Телефон
-                                    input.form__input(type="text" name="phone" autocomplete="off")
-                                div.form__group
-                                    label.form__label(for="")
-                                        |Название компании
-                                    input.form__input(type="text" autocomplete="off")
-                            div.form__col
-                                div.form__group
-                                    label.form__label(for="")
-                                        |Текст сообщения
-                                        span.form__req-sign
-                                            |*
-                                    textarea.form__textarea(name="" data-req data-type="textarea" autocomplete="off")
-                        button.common__button.common__button--white.form__submit-button.js-submit
-                            |Отправить           
+        //= partials/popup.pug
+             
         script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
         script(src="script/vendor.js" type="text/javascript")
         script(src="script/script.js")

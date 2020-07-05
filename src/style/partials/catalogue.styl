@@ -2,9 +2,22 @@
     width 100%
     overflow hidden
 
+    &--inner
+        margin 31px 0 100px 0
+
     &__heading-wrapper
         width 1050px
         margin 0 auto 24px auto
+        @media laptop
+            width 856px
+        @media tablet-portrait
+            width calc(100% - 60px)
+        @media phone
+            width calc(100% - 40px)
+
+    &__info
+        width 1050px
+        margin 0 auto
         @media laptop
             width 856px
         @media tablet-portrait
@@ -16,15 +29,8 @@
         display flex
         justify-content space-between
         align-items flex-start
-        width 1050px
-        margin 0 auto
-        @media laptop
-            width 856px
         @media tablet-portrait
             flex-direction column
-            width calc(100% - 60px)
-        @media phone
-            width calc(100% - 40px)
 
     &__col
         width calc(50% - 25px)
@@ -36,6 +42,9 @@
     &__col + &__col
         @media tablet-portrait
             margin-top 24px
+
+    &__gallery
+        margin 76px auto
 
     &__buttons-list
         display flex
@@ -87,7 +96,10 @@
             @media phone
                 margin 0 0 20px 0
 
-    &__table-wrapper
+    &__tabs
+        margin-bottom 33px
+
+    &__comp
         width calc(100% - 60px)
         margin 0 auto
         @media phone
@@ -107,6 +119,34 @@
         @media tablet-portrait
             text-align left
 
+.catalogue--inner
+    & .catalogue__brochure
+        display block
+        width 100%
+        text-align center
+        @media phone
+            text-align left
+
+    & .catalogue__buttons-list
+        justify-content center
+        @media phone
+            justify-content flex-start
+
+    & .catalogue__products
+        margin 76px auto 50px auto
+
+    & .catalogue__comp
+        margin-bottom 76px
+        @media phone
+            display block
+            width calc(100% - 40px)
+
+    & .catalogue__table-wrapper
+        display none
+
+        &.js-content-is-visible
+            display block
+
 .catalogue__table
     border 2px solid light-gray
     border-collapse collapse
@@ -119,6 +159,7 @@
     & th
         box-sizing border-box
         min-width 95px
+        max-width 250px
         padding 9px 20px 7px 20px
         font-family "Montserrat"
         font-size 17px
@@ -126,6 +167,7 @@
         font-weight 600
         color black
         text-align left
+        vertical-align top
         @media desktop-small
             font-size 15px
             line-height 21px
@@ -138,12 +180,14 @@
     & td
         box-sizing border-box
         min-width 95px
+        max-width 250px
         padding 10px 20px 9px 20px
         font-family "Montserrat"
         font-size 17px
         line-height 23px
         font-weight 300
         color inherit
+        vertical-align top
         @media desktop-small
             font-size 15px
             line-height 21px

@@ -14,10 +14,12 @@
     function changeCompState(){
 
         let hoveredProduct = this.getAttribute("data-product");
-        let productComp = document.querySelector("[data-composition=" + hoveredProduct + "]");
+        let productComp = document.querySelectorAll("[data-composition=" + hoveredProduct + "]");
         
         if(productComp){
-            productComp.classList.toggle("js-is-highlighted");
+            for(let i = 0; i < productComp.length;i++ ){
+                productComp[i].classList.toggle("js-is-highlighted");
+            };
         };
         
     };

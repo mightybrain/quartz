@@ -1,0 +1,52 @@
+section.hidden-block
+    div.hidden-block__background
+    div.hidden-block__close-button.js-close-popup-button
+    div.hidden-block__container
+        div.popup.popup--search.hidden-block__popup(data-popup="search")
+            form.form
+                div.form__group
+                    input.form__search-input(placeholder="Поиск по сайту" type="text" autocomplete="off" data-req)
+                    button.form__search-submit-button.js-submit
+                        svg(width="22" height="22")
+                            use(xlink:href="#search-icon")
+        div.popup.hidden-block__popup(data-popup="feedback")
+            div.popup__text
+                h1.common__h1-heading.common__h1-heading--white.popup__heading
+                    |Связаться с нами
+                p.common__description.common__description--white
+                    |Обратите внимание, отправляя данную форму, вы даете согласие на обработку 
+                    a(href="")
+                        |персональных данных
+                    |. Поля со звездочкой «*» – обязательны для заполнения.
+            form.form
+                div.form__cols
+                    div.form__col
+                        div.form__group
+                            label.form__label(for="")
+                                |Ваше имя
+                                span.form__req-sign
+                                    |*
+                            input.form__input(type="text" data-req name="name" autocomplete="off")
+                        div.form__group
+                            .form__label(for="")
+                                |Электронная почта
+                                span.form__req-sign
+                                    |*
+                            input.form__input(type="text" data-req name="mail" autocomplete="off")
+                        div.form__group
+                            label.form__label(for="")
+                                |Телефон
+                            input.form__input(type="text" name="phone" autocomplete="off")
+                        div.form__group
+                            label.form__label(for="")
+                                |Название компании
+                            input.form__input(type="text" autocomplete="off")
+                    div.form__col
+                        div.form__group
+                            label.form__label(for="")
+                                |Текст сообщения
+                                span.form__req-sign
+                                    |*
+                            textarea.form__textarea(name="" data-req data-type="textarea" autocomplete="off")
+                button.common__button.common__button--white.form__submit-button.js-submit
+                    |Отправить  

@@ -40,3 +40,7 @@
 
 // Валидация форм
 //= partials/validation.js
+
+
+// Табы
+//= partials/tabs.js

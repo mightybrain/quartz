@@ -6,14 +6,50 @@ svg circle
     fill inherit !important
     stroke inherit !important
     stroke-width inherit !important
-    
-.default
-    width 1050px
-    margin 31px auto 100px auto
-    @media laptop
-        width 856px
-    @media tablet-portrait
-        width calc(100% - 60px)
+
+.tabs
+    &__list
+        display flex
+        flex-wrap wrap
+        justify-content center
+        margin 0
+        padding 0
+        list-style none
+        @media phone
+            justify-content flex-start
+
+    &__item
+        margin 0 15px 10px 15px
+        @media phone
+            margin 0 0 10px 0
+
+        &:not(:nth-last-child(1))
+            @media phone
+                margin-right 30px
+
+    &__button
+        display inline
+        padding 0
+        margin 0
+        font-family "Montserrat"
+        font-size 17px
+        line-height 23px
+        font-weight 600
+        color black
+        background none
+        border none
+        border-bottom 1px dotted black
+        outline none
+        transition border .3s 0s ease
+        cursor pointer
+
+        &:hover
+            border-bottom 1px dotted transparent
+
+        &--active
+            color main-blue
+            border-bottom 1px dotted transparent
+            cursor default
 
 .common
     &__h1-heading
@@ -162,6 +198,15 @@ svg circle
             line-height 52px
             font-weight 600
             color black
+            @media desktop-small
+                font-size 36px
+                line-height 40px
+            @media tablet-landscape-small
+                font-size 30px
+                line-height 34px
+            @media phone
+                font-size 20px
+                line-height 24px
 
         & h3:not([class])
             margin 0 0 26px 0
@@ -170,6 +215,15 @@ svg circle
             line-height 40px
             font-weight 600
             color black
+            @media desktop-small
+                font-size 30px
+                line-height 34px
+            @media tablet-landscape-small
+                font-size 24px
+                line-height 28px
+            @media phone
+                font-size 18px
+                line-height 22px
 
         & p:not([class]) + h2:not([class]),
         & img:not([class]) + h2:not([class]),
@@ -190,6 +244,9 @@ svg circle
             line-height 23px
             font-weight 300
             color black
+            @media desktop-small
+                font-size 15px
+                line-height 21px
 
         & p:not([class]) + p:not([class]),
         & img:not([class]) + p:not([class]),
@@ -207,11 +264,15 @@ svg circle
             line-height 23px
             font-weight 300
             color black
+            @media desktop-small
+                font-size 15px
+                line-height 21px
 
         & li:not([class]) + li:not([class])
             margin-top 6px
 
-        & ul:not([class]) 
+        & ul:not([class])
+            width calc(100% - 30px)
             margin 0
             padding 0
             list-style none
@@ -227,6 +288,7 @@ svg circle
                 background-color main-blue
 
         & ol:not([class])
+            width calc(100% - 30px)
             margin 0
             padding 0
             list-style none
@@ -245,6 +307,9 @@ svg circle
                 line-height 23px
                 font-weight 300
                 color main-blue
+                @media desktop-small
+                    font-size 15px
+                    line-height 21px
 
         & ol:not([class]) + ol:not([class]),
         & p:not([class]) + ol:not([class]),
@@ -260,6 +325,7 @@ svg circle
 
         & img:not([class])
             display block
+            max-width 100%
             margin 0
 
         & img:not([class]) + img:not([class])
@@ -282,6 +348,9 @@ svg circle
             border-bottom 1px solid main-blue
             outline none
             transition border .3s 0s ease
+            @media desktop-small
+                font-size 15px
+                line-height 21px
 
             &:hover
                 border-bottom 1px solid transparent
@@ -342,5 +411,24 @@ svg circle
     &__table-scroller
         overflow-x auto
 
-.common__description .common__link
-    margin 0 5px
+.common__description:not(.common__description--large) a
+    display inline
+    font-family "Montserrat"
+    font-size 17px
+    line-height 23px
+    font-weight 300
+    color black
+    text-decoration none
+    border-bottom 1px solid black
+    transition border .3s 0s ease
+    @media desktop-small
+        font-size 15px
+        line-height 21px
+
+    &:hover
+        border-bottom 1px solid transparent
+
+.common__description--white:not(.common__description--large) a
+    color white
+    border-bottom 1px solid white
+

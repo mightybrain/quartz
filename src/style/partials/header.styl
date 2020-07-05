@@ -23,14 +23,14 @@
             position fixed
             top 0
             left 0
-            width 100%
+            width 0
             height 100%
             margin 0
             background-color main-blue
             opacity 0
             visibility hidden
             overflow hidden
-            transition opacity 1s .5s ease, visibility 0s 1.5s linear
+            transition width 0s 1.5s linear, opacity 1s .5s ease, visibility 0s 1.5s linear
 
     &__rows
         @media tablet-landscape-medium
@@ -461,9 +461,10 @@ body.js-burger-menu-is-open
     overflow-y hidden
 
     & .head__aside
+        width 100%
         opacity 1
         visibility visible
-        transition opacity 1s 0s ease, visibility 0s 0s linear
+        transition width 0s 0s linear, opacity 1s 0s ease, visibility 0s 0s linear
 
     & .head__rows
         opacity 1
