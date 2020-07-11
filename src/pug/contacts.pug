@@ -1,0 +1,189 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1")
+        link(rel="stylesheet" href="style/normalize.css" type="text/css")
+        link(rel="stylesheet" href="style/swiper.css" type="text/css")
+        link(rel="stylesheet" href="style/choices.css" type="text/css")
+        link(rel="stylesheet" href="style/main.css" type="text/css")
+        title Русский Кварц. Контактная информация
+    body.content
+        div(style="display: none")
+            include ../../build/images/sprite.svg
+        header.head
+            div.logo.head__logo
+                a.logo__link(href="")
+                    svg(width="145" height="107")
+                        use(xlink:href="#main-logo")
+            aside.head__aside
+                div.head__rows
+                    div.head__row
+                        ul.head__lang-list
+                            li.head__lang-item
+                                a.head__lang-link(href="")
+                                    |Eng
+                            li.head__lang-item
+                                a.head__lang-link(href="")
+                                    |中文
+                        a.head__phone(href="tel:")
+                            |+7 (35151) 4-38-45
+                        button.head__feedback-button.js-popup-button(data-for="feedback")
+                            |Связаться с нами
+                    div.head__row
+                        nav.main-nav
+                            ul.main-nav__list
+                                li.main-nav__item
+                                    a.main-nav__link(href="")
+                                        |О предприятии
+                                li.main-nav__item.main-nav__item--active
+                                    //a.main-nav__link(href="")
+                                    |Продукция
+                                li.main-nav__item
+                                    a.main-nav__link(href="")
+                                        |Информация покупателям
+                                    ul.main-nav__submenu-list
+                                        li.main-nav__submenu-item
+                                            a.main-nav__submenu-link(href="")
+                                                |Области применения продукции РК
+                                            ul.main-nav__submenu-list.main-nav__submenu-list--level2
+                                                li.main-nav__submenu-item
+                                                    a.main-nav__submenu-link(href="")
+                                                        |Светотехническая промышленность
+                                                li.main-nav__submenu-item.main-nav__submenu-item--active
+                                                    //a.main-nav__submenu-link(href="")
+                                                    |Оптическая промышленность
+                                                li.main-nav__submenu-item
+                                                    a.main-nav__submenu-link(href="")
+                                                        |Фотоэлектрическая промышленность
+                                                li.main-nav__submenu-item
+                                                    a.main-nav__submenu-link(href="")
+                                                        |Полупроводниковая промышленность
+                                        li.main-nav__submenu-item
+                                            a.main-nav__submenu-link(href="")
+                                                |Как выглядит упакованная готовая продукция
+                                        li.main-nav__submenu-item
+                                            a.main-nav__submenu-link(href="")
+                                                |Логистика
+                                li.main-nav__item
+                                    a.main-nav__link(href="")
+                                        |Контактная информация
+                                li.main-nav__item
+                                    button.main-nav__search-button.js-popup-button(data-for="search")
+                                        svg(width="12" height="12")
+                                            use(xlink:href="#search-icon")
+            div.burger.head__burger
+                div.burger__default
+                    div.burger__stroke
+                div.burger__cross
+        main.main
+            section.inner-intro
+                div.breadcrumps
+                    ul.breadcrumps__list
+                        li.breadcrumps__item
+                            a.breadcrumps__link(href="")
+                                |Главная
+                h1.inner-intro__heading
+                    |Контактная информация
+            section.contacts
+                div.contacts__info
+                    ul.contacts__list
+                        li.contacts__item
+                            span.contacts__hint
+                                |Исполнительный директор
+                            div.contacts__data
+                                p
+                                    |Миллер Антон Витальевич
+                        li.contacts__item
+                            span.contacts__hint
+                                |Адрес
+                            div.contacts__data
+                                p
+                                    |456870 Россия, Челябинская область, город Кыштым, Каслинское шоссе, дом 3
+                        li.contacts__item
+                            span.contacts__hint
+                                |Телефон
+                            div.contacts__data
+                                p
+                                    |+7 (35151) 4-38-45
+                        li.contacts__item
+                            span.contacts__hint
+                                |Факс
+                            div.contacts__data
+                                p
+                                    |+7 (35151) 4-38-48
+                        li.contacts__item
+                            span.contacts__hint
+                                |Электронная почта
+                            div.contacts__data
+                                ul
+                                    li
+                                        a(href="")
+                                            |info@russianquartz.com
+                                        p
+                                            |Отправляя письмо по данному адресу не забывайте указывать кому оно предназначено.
+                                    li
+                                        a(href="")
+                                            |mts@russianquartz.com
+                                    li
+                                        a(href="")
+                                            |it@russianquartz.com
+                        li.contacts__item
+                            span.contacts__hint
+                                |Время работы
+                            div.contacts__data
+                                p
+                                    |Понедельник – пятница: 08:00 – 17:00 (обед: 12:00 – 13:00) Суббота, воскресение – выходные
+                    div.contacts__wysiwyg.common__wysiwyg
+                div#map.contacts__map.js-scroll-lock
+                div.feedback
+                    div.feedback__container
+                        div.feedback__text
+                            h1.common__h1-heading.common__h1-heading--white.feedback__heading
+                                |Связаться с нами
+                            p.common__description.common__description--white
+                                |Обратите внимание, отправляя данную форму, вы даете согласие на обработку 
+                                a(href="")
+                                    |персональных данных
+                                |. Поля со звездочкой «*» – обязательны для заполнения.
+                        form.form
+                            div.form__cols
+                                div.form__col
+                                    div.form__group
+                                        label.form__label
+                                            |Ваше имя
+                                            span.form__req-sign
+                                                |*
+                                        input.form__input(type="text" data-req name="name" autocomplete="off")
+                                    div.form__group
+                                        label.form__label
+                                            |Электронная почта
+                                            span.form__req-sign
+                                                |*
+                                        input.form__input(type="text" data-req name="mail" autocomplete="off")
+                                    div.form__group
+                                        label.form__label
+                                            |Телефон
+                                        input.form__input(type="text" name="phone" autocomplete="off")
+                                    div.form__group
+                                        label.form__label
+                                            |Название компании
+                                        input.form__input(type="text" autocomplete="off")
+                                div.form__col
+                                    div.form__group
+                                        label.form__label
+                                            |Текст сообщения
+                                            span.form__req-sign
+                                                |*
+                                        textarea.form__textarea(data-req data-type="textarea" autocomplete="off")
+                            button.common__button.common__button--white.form__submit-button.js-submit
+                                |Отправить 
+                    
+        //= partials/footer.pug
+        //= partials/popup.pug
+             
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
+        script(src="script/vendor.js" type="text/javascript")
+        script(src="script/script.js")
+
+

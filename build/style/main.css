@@ -185,6 +185,10 @@ svg circle {
   color: #fff;
   border-bottom: 1px solid #fff;
 }
+.common__link--blue {
+  color: #113e92;
+  border-bottom: 1px solid #113e92;
+}
 .common__link:hover {
   border-bottom: 1px solid transparent;
 }
@@ -560,7 +564,20 @@ svg circle {
   }
 }
 .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #fff;
+}
+.main {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 .head {
   position: absolute;
@@ -3331,4 +3348,186 @@ body.js-popup-is-open .hidden-block__close-button {
   .default {
     width: calc(100% - 40px);
   }
+}
+.contacts {
+  width: 100%;
+  margin-top: 32px;
+}
+.contacts__info {
+  width: 1050px;
+  margin: 0 auto 100px auto;
+}
+@media (max-width: 1480px) {
+  .contacts__info {
+    width: 856px;
+  }
+}
+@media (max-width: 960px) {
+  .contacts__info {
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 600px) {
+  .contacts__info {
+    width: calc(100% - 40px);
+    margin: 0 auto 80px auto;
+  }
+}
+.contacts__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 50px;
+  -moz-column-gap: 50px;
+  column-gap: 50px;
+}
+@media (max-width: 1480px) {
+  .contacts__list {
+    -webkit-column-gap: 32px;
+    -moz-column-gap: 32px;
+    column-gap: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .contacts__list {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    column-gap: 0;
+  }
+}
+.contacts__item {
+  margin-bottom: 39px;
+}
+.contacts__hint {
+  display: block;
+  width: 100%;
+  margin-bottom: 9px;
+  font-family: "Montserrat";
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #000;
+}
+@media (max-width: 1580px) {
+  .contacts__hint {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.contacts__map {
+  width: 100%;
+  height: 540px;
+}
+.contacts__data p:not([class]) {
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 300;
+  color: #000;
+}
+@media (max-width: 1580px) {
+  .contacts__data p:not([class]) {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+.contacts__data p:not([class]) + p:not([class]),
+.contacts__data ol:not([class]) + p:not([class]),
+.contacts__data ul:not([class]) + p:not([class]) {
+  margin-top: 24px;
+}
+.contacts__data li:not([class]) {
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 300;
+  color: #000;
+}
+@media (max-width: 1580px) {
+  .contacts__data li:not([class]) {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+.contacts__data li:not([class]) + li:not([class]) {
+  margin-top: 6px;
+}
+.contacts__data ul:not([class]),
+.contacts__data ol:not([class]) {
+  width: calc(100% - 30px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contacts__data ol:not([class]) + ol:not([class]),
+.contacts__data p:not([class]) + ol:not([class]),
+.contacts__data ul:not([class]) + ol:not([class]),
+.contacts__data ul:not([class]) + ul:not([class]),
+.contacts__data p:not([class]) + ul:not([class]),
+.contacts__data ol:not([class]) + ul:not([class]) {
+  margin-top: 24px;
+}
+.contacts__data a:not([class]) {
+  display: inline;
+  font-family: "Montserrat";
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 300;
+  color: #113e92;
+  text-decoration: none;
+  border-bottom: 1px solid #113e92;
+  outline: none;
+  -webkit-transition: border 0.3s 0s ease;
+  transition: border 0.3s 0s ease;
+}
+@media (max-width: 1580px) {
+  .contacts__data a:not([class]) {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
+.contacts__data a:not([class]):hover {
+  border-bottom: 1px solid transparent;
+}
+.feedback {
+  padding: 100px 0 100px 0;
+  background-color: #113e92;
+}
+@media (max-width: 600px) {
+  .feedback {
+    padding: 80px 0 80px 0;
+  }
+}
+.feedback__container {
+  width: 1050px;
+  margin: 0 auto;
+}
+@media (max-width: 1480px) {
+  .feedback__container {
+    width: 856px;
+  }
+}
+@media (max-width: 960px) {
+  .feedback__container {
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 600px) {
+  .feedback__container {
+    width: calc(100% - 40px);
+  }
+}
+.feedback__text {
+  margin-bottom: 64px;
+}
+.feedback__heading {
+  margin-bottom: 23px;
 }

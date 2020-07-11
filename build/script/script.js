@@ -137,7 +137,9 @@ if(document.getElementById("map")){
         locationMap.geoObjects
             .add(mainPin)
 
-        //locationMap.behaviors.disable("scrollZoom");
+        if(locationMap.container._parentElement.classList.contains("js-scroll-lock")){
+            locationMap.behaviors.disable("scrollZoom");
+        };
         locationMap.controls.remove("searchControl");
         locationMap.controls.remove("rulerControl");
         locationMap.controls.remove("typeSelector");
