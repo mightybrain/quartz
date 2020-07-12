@@ -4,8 +4,11 @@
 
     &--inner
         margin 31px 0 100px 0
+        @media phone
+            margin 31px 0 80px 0
 
-    &__heading-wrapper
+    &__heading
+        display block
         width 1050px
         margin 0 auto 24px auto
         @media laptop
@@ -46,23 +49,6 @@
     &__gallery
         margin 76px auto
 
-    &__buttons-list
-        display flex
-        flex-wrap nowrap
-        margin 14px 0 0 0 
-        padding 0
-        list-style none
-
-    &__buttons-item + &__buttons-item
-        margin-left 30px
-
-    &__download-link
-        margin-right 10px
-
-    &__press-button
-        @media phone
-            display none
-
     &__products
         width 1050px
         margin 43px auto 50px auto
@@ -96,110 +82,112 @@
             @media phone
                 margin 0 0 20px 0
 
-    &__tabs
-        margin-bottom 33px
-
-    &__comp
-        width calc(100% - 60px)
-        margin 0 auto
+    &__composition
         @media phone
             display none
 
+.brochure
+    &__buttons-list
+        display flex
+        flex-wrap nowrap
+        margin 14px 0 0 0 
+        padding 0
+        list-style none
+
+    &__buttons-item + &__buttons-item
+        margin-left 30px
+
+    &__download-link
+        margin-right 10px
+
+    &__press-button
+        @media phone
+            display none
+
+.composition
+    width calc(100% - 60px)
+    @media phone
+        width calc(100% - 40px)
+
+    &__tabs
+        margin-bottom 33px
+
+    &__heading
+        margin-bottom 21px
+
+    &__table-wrapper + &__heading
+        margin-top 74px
+
     &__table-scroller
-        margin-bottom 15px
         overflow-x auto
 
     &__table
         margin 0 auto
+        border 2px solid light-gray
+        border-collapse collapse
+
+        & tr
+            color black
+            background-color transparent
+            transition background-color .3s 0s ease, color .3s 0s ease
+
+        & th
+            box-sizing border-box
+            min-width 95px
+            max-width 250px
+            padding 9px 20px 7px 20px
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 600
+            color black
+            text-align left
+            vertical-align top
+            @media desktop-small
+                font-size 15px
+                line-height 21px
+            @media tablet-landscape-medium
+                min-width auto
+
+            &:not(:nth-last-child(1))
+                border-right 1px solid light-gray
+
+        & td
+            box-sizing border-box
+            min-width 95px
+            max-width 250px
+            padding 10px 20px 9px 20px
+            font-family "Montserrat"
+            font-size 17px
+            line-height 23px
+            font-weight 300
+            color inherit
+            vertical-align top
+            @media desktop-small
+                font-size 15px
+                line-height 21px
+            @media tablet-landscape-medium
+                min-width auto
+
+            &:nth-child(1)
+                font-weight 600
+
+            &:not(:nth-last-child(1))
+                border-right 1px solid light-gray
+                transition border .3s 0s ease
 
     &__table-hint
         display block
+        margin-top 15px
         width 100%
         text-align center
         @media tablet-portrait
             text-align left
 
-.catalogue--inner
-    & .catalogue__brochure
-        display block
-        width 100%
-        text-align center
-        @media phone
-            text-align left
-
-    & .catalogue__buttons-list
-        justify-content center
-        @media phone
-            justify-content flex-start
-
-    & .catalogue__products
-        margin 76px auto 50px auto
-
-    & .catalogue__comp
-        margin-bottom 76px
-        @media phone
-            display block
-            width calc(100% - 40px)
-
-    & .catalogue__table-wrapper
-        display none
-
-        &.js-content-is-visible
-            display block
-
-.catalogue__table
-    border 2px solid light-gray
-    border-collapse collapse
-
-    & tr
-        color black
-        background-color transparent
-        transition background-color .3s 0s ease, color .3s 0s ease
-
-    & th
-        box-sizing border-box
-        min-width 95px
-        max-width 250px
-        padding 9px 20px 7px 20px
-        font-family "Montserrat"
-        font-size 17px
-        line-height 23px
-        font-weight 600
-        color black
-        text-align left
-        vertical-align top
-        @media desktop-small
-            font-size 15px
-            line-height 21px
-        @media tablet-landscape-medium
-            min-width auto
-
-        &:not(:nth-last-child(1))
-            border-right 1px solid light-gray
-
-    & td
-        box-sizing border-box
-        min-width 95px
-        max-width 250px
-        padding 10px 20px 9px 20px
-        font-family "Montserrat"
-        font-size 17px
-        line-height 23px
-        font-weight 300
-        color inherit
-        vertical-align top
-        @media desktop-small
-            font-size 15px
-            line-height 21px
-        @media tablet-landscape-medium
-            min-width auto
-
-        &:nth-child(1)
-            font-weight 600
-
-        &:not(:nth-last-child(1))
-            border-right 1px solid light-gray
-            transition border .3s 0s ease
+    &__compare
+        position absolute
+        top 0
+        right 0
 
 tr.js-is-highlighted
     background-color main-blue
@@ -207,6 +195,33 @@ tr.js-is-highlighted
 
     & td:not(:nth-last-child(1))
         border-right 1px solid light-blue
+
+.catalogue--inner
+    & .brochure
+        display block
+        width 100%
+        text-align center
+        @media phone
+            text-align left
+
+        &__buttons-list
+            justify-content center
+            @media phone
+                justify-content flex-start
+
+    & .catalogue__products
+        margin 76px auto 50px auto
+
+    & .catalogue__composition
+        margin-bottom 76px
+        @media phone
+            display block
+
+    & .composition__table-wrapper
+        display none
+
+        &.js-content-is-visible
+            display block
 
 .product-preview
     box-sizing border-box
@@ -231,6 +246,12 @@ tr.js-is-highlighted
         border 2px solid deep-blue
         background-color deep-blue
         color white
+
+        & .product-preview__link
+            border-bottom 1px solid white
+
+            &:hover
+                border-bottom 1px solid transparent
 
     &__heading
         display block
@@ -274,12 +295,50 @@ tr.js-is-highlighted
 
     &__description + &__description
         margin-top 24px
-
-.product-preview:hover
-    & .product-preview__link
-        border-bottom 1px solid white
-
-        &:hover
-            border-bottom 1px solid transparent
         
+.product
+    width 1050px
+    margin 25px auto 100px auto
+    @media desktop-small
+        margin 30px auto 100px auto
+    @media laptop
+        width 856px
+    @media tablet-portrait
+        width calc(100% - 60px)
+    @media phone
+        margin 30px auto 80px auto
+        width calc(100% - 40px)
+
+    &__cols
+        display flex
+        flex-wrap nowrap
+        justify-content space-between
+        @media tablet-portrait
+            flex-direction column
+
+    &__col
+        width calc(50% - 25px)
+        @media laptop
+            width calc(50% - 16px)
+        @media tablet-portrait
+            width 100%
+
+    &__col + &__col
+        @media tablet-portrait
+            margin-top 24px
+
+    &__composition
+        position relative
+        margin 68px 0 75px 0
+
+    & .composition
+        width 100%
+
+    & .composition__table
+        margin 0
+
+        & td:nth-child(1)
+            font-weight 300
+
+
     

@@ -168,8 +168,8 @@ html(lang="ru")
                                     |&lt; 9 ppm примесей
                                 p.product-preview__description
                                     |Применяется в производстве кварцевого стекла, используемого в полупроводниковой промышленности, а также в качестве внутреннего слоя тиглей для солнечной и полупроводниковой индустрии.  
-                div.catalogue__comp
-                    div.tabs.catalogue__tabs.js-tabs(data-tabs="comp")
+                div.composition.catalogue__composition
+                    div.tabs.composition__tabs.js-tabs(data-tabs="comp")
                         ul.tabs__list
                             li.tabs__item
                                 button.tabs__button(data-tab="grading")
@@ -177,10 +177,10 @@ html(lang="ru")
                             li.tabs__item
                                 button.tabs__button(data-tab="chemical")
                                     |Химический&nbsp;состав
-                    div.catalogue__comp-tables(data-tabs-content="comp")
-                        div.catalogue__table-wrapper(data-content-group="grading")
-                            div.catalogue__table-scroller
-                                table.catalogue__table
+                    div.composition__tables(data-tabs-content="comp")
+                        div.composition__table-wrapper(data-content-group="grading")
+                            div.composition__table-scroller
+                                table.composition__table
                                     tr
                                         th
                                         th
@@ -369,9 +369,9 @@ html(lang="ru")
                                             |0.06
                                         td
                                             |2.8
-                        div.catalogue__table-wrapper(data-content-group="chemical")
-                            div.catalogue__table-scroller
-                                table.catalogue__table
+                        div.composition__table-wrapper(data-content-group="chemical")
+                            div.composition__table-scroller
+                                table.composition__table
                                     tr
                                         th
                                         th
@@ -449,17 +449,17 @@ html(lang="ru")
                                         td
                                             |1.5
                 div.catalogue__info
-                    div.catalogue__brochure.catalogue__brochure
+                    div.brochure
                         span.common__description
                             |Брошюра с продукцией «Русский Кварц»
-                        ul.catalogue__buttons-list
-                            li.catalogue__buttons-item
-                                a.common__link.catalogue__download-link(href="file:")
+                        ul.brochure__buttons-list
+                            li.brochure__buttons-item
+                                a.common__link.brochure__download-link(href="file:")
                                     |Скачать
                                 span.common__link-hint
                                     |pdf, 3.2 мб
-                            li.catalogue__buttons-item
-                                button.common__button-link.catalogue__press-button
+                            li.brochure__buttons-item
+                                button.common__button-link.brochure__press-button
                                     |Распечатать
         //= partials/footer.pug
         //= partials/popup.pug

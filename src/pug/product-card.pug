@@ -77,14 +77,17 @@ html(lang="ru")
                     div.burger__stroke
                 div.burger__cross
         main.main
-            section.inner-intro
+            section.inner-intro.inner-intro--product
                 div.breadcrumps
                     ul.breadcrumps__list
                         li.breadcrumps__item
                             a.breadcrumps__link(href="")
                                 |Главная
+                        li.breadcrumps__item
+                            a.breadcrumps__link(href="")
+                                |Продукция
                 h1.inner-intro__heading
-                    |Продукция
+                    |RQ–2Ki
             section.product
                 div.product__info
                     div.product__cols
@@ -105,13 +108,13 @@ html(lang="ru")
                                     li.brochure__buttons-item
                                         button.common__button-link.brochure__press-button
                                             |Распечатать
-                div.product__comp
-                    div.product__comp-tables
-                        h2.product__table-heading
+                div.composition.product__composition
+                    div.composition__tables
+                        h3.common__h3-heading.composition__heading
                             |Содержание примесей, ppm
-                        div.product__table-wrapper
-                            div.product__table-scroller
-                                table.product__table
+                        div.composition__table-wrapper
+                            div.composition__table-scroller
+                                table.composition__table
                                     tr
                                         th
                                         th
@@ -202,11 +205,11 @@ html(lang="ru")
                                             |3
                                         td
                                             |2.8
-                        h2.product__table-heading
+                        h3.common__h3-heading.composition__heading
                             |Гранулометрический состав
-                        div.product__table-wrapper
-                            div.product__table-scroller
-                                table.product__table
+                        div.composition__table-wrapper
+                            div.composition__table-scroller
+                                table.composition__table
                                     tr
                                         th
                                             |Меш
@@ -216,9 +219,9 @@ html(lang="ru")
                                             |Допуск (масс, %)
                                     tr
                                         td
-                                            |>&nbsp;80
+                                            |&gt;&nbsp;80
                                         td
-                                            |>&nbsp;180
+                                            |&gt;&nbsp;180
                                         td
                                             |&lt;&nbsp;3
                                     tr
@@ -227,7 +230,7 @@ html(lang="ru")
                                         td
                                             |75&#8209;180
                                         td
-                                            |>&nbsp;87
+                                            |&gt;&nbsp;87
                                     tr
                                         td
                                             |&lt;&nbsp;200
@@ -235,7 +238,7 @@ html(lang="ru")
                                             |&lt;&nbsp;75
                                         td
                                             |&lt;&nbsp;10
-                    div.product__compare
+                    //div.product__compare
                         span.product__compare-hint
                             |Сравнить
                         ul.product__compare-list

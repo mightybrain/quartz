@@ -101,9 +101,8 @@ html(lang="ru")
                         svg(width="39" height="26")
                             use(xlink:href="#arrow-right")
             section.catalogue
-                div.catalogue__heading-wrapper
-                    h1.common__h1-heading
-                        |Каталог продукции
+                h1.common__h1-heading.catalogue__heading
+                    |Каталог продукции
                 div.catalogue__info
                     div.catalogue__cols
                         div.catalogue__col
@@ -111,17 +110,17 @@ html(lang="ru")
                                 p.common__description
                                     |Компания производит высокочистый кварцевый концентрат под маркой Russian Quartz. 
                         div.catalogue__col
-                            div.catalogue__brochure
+                            div.brochure
                                 span.common__description
                                     |Брошюра с продукцией «Русский Кварц»
-                                ul.catalogue__buttons-list
-                                    li.catalogue__buttons-item
-                                        a.common__link.catalogue__download-link(href="file:")
+                                ul.brochure__buttons-list
+                                    li.brochure__buttons-item
+                                        a.common__link.brochure__download-link(href="file:")
                                             |Скачать
                                         span.common__link-hint
                                             |pdf, 3.2 мб
-                                    li.catalogue__buttons-item
-                                        button.common__button-link.catalogue__press-button
+                                    li.brochure__buttons-item
+                                        button.common__button-link.brochure__press-button
                                             |Распечатать
                 div.catalogue__products.swiper-container.js-products-slider
                     ul.catalogue__products-list.swiper-wrapper
@@ -179,10 +178,10 @@ html(lang="ru")
                                     |&lt; 9 ppm примесей
                                 p.product-preview__description
                                     |Применяется в производстве кварцевого стекла, используемого в полупроводниковой промышленности, а также в качестве внутреннего слоя тиглей для солнечной и полупроводниковой индустрии.  
-                div.catalogue__comp
-                    div.catalogue__table-wrapper
-                        div.catalogue__table-scroller
-                            table.catalogue__table
+                div.composition.catalogue__composition
+                    div.composition__table-wrapper
+                        div.composition__table-scroller
+                            table.composition__table
                                 tr
                                     th
                                     th
@@ -371,7 +370,7 @@ html(lang="ru")
                                         |0.06
                                     td
                                         |2.8
-                        span.common__description.catalogue__table-hint
+                        span.common__description.composition__table-hint
                             |Химический состав ВЧК РК (технические требования), ppm
             section.location.js-sticky-container.js-scaling-container
                 div.location__container.js-sticky.js-scaling
