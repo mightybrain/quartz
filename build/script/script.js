@@ -523,19 +523,19 @@ if(document.getElementById("map")){
                         switch(formElems[i].getAttribute("name")){
                             case "surname":
                             case "name":
-                                let namePattern = new RegExp("^[а-яa-z\-\s]+$","i");
+                                let namePattern = new RegExp("^[a-zа-яё -]{1,}$","i");
                                 valueCheck(formElems[i], formElems[i].value, namePattern);
                                 break;
                             case "phone":   
-                                let phonePattern = new RegExp("^[0-9]{11}$");
+                                let phonePattern = new RegExp("^[0-9 ]{7,}$");
                                 valueCheck(formElems[i], formElems[i].value, phonePattern);
                                 break;
                             case "date":   
-                                let datePattern = new RegExp("^.{8,10}$");
+                                let datePattern = new RegExp("^[0-9]{1,4}[.]{1}[0-9]{1,4}[.]{1}[0-9]{1,4}$");
                                 valueCheck(formElems[i], formElems[i].value, datePattern);
                                 break;
                             case "mail":
-                                let mailPattern = new RegExp("^[a-z0-9\_\-]+@{1}[a-z]+\.{1}[а-яa-z]{2}$","i");
+                                let mailPattern = new RegExp("^[a-z0-9_-]{1,}@{1}[a-z]{1,}[.]{1}[a-z]{2}$","i");
                                 valueCheck(formElems[i], formElems[i].value, mailPattern);
                                 break;
                         };
