@@ -53,6 +53,7 @@
             width calc(100% - 40px)
 
     &__heading
+        position relative
         margin 0
         font-family "Montserrat"
         font-size 60px
@@ -70,6 +71,7 @@
             line-height 28px
 
     &__description
+        position relative
         width 75%
         margin 0 auto
         font-family "Montserrat"
@@ -114,3 +116,20 @@
 
 .main-slider__description + .main-slider__description
     margin-top 24px
+
+.swiper-slide-active
+    & .main-slider__heading
+        animation main-slider-heading-fade-in
+        animation-duration 2s
+        animation-timing-function ease
+        animation-iteration-count 1
+        animation-direction normal
+        animation-fill-mode forwards
+
+    & .main-slider__description
+        animation main-slider-description-fade-in
+        animation-duration 2s
+        animation-timing-function ease
+        animation-iteration-count 1
+        animation-direction normal
+        animation-fill-mode forwards
