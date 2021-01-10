@@ -1,18 +1,26 @@
-(function(){
+class Burger{
 
-    const burgerButton = document.querySelector(".burger");
-    if(burgerButton){
-        burgerButton.addEventListener("click", changeMenuState);
-    };
+    constructor(button){
+        this.buttonElement = button;
+        this.init();
+    }
 
-    function changeMenuState(){
-        document.body.classList.toggle("js-burger-menu-is-open");
+    init(){
+        this.buttonElement.addEventListener("click", function(){
 
-        if(!burgerButton.classList.contains("js-burger-is-open")){
-            burgerButton.classList.add("js-burger-is-open");
-        }else if(burgerButton.classList.contains("js-burger-is-open")){
-            burgerButton.classList.remove("js-burger-is-open");
-        };
-    };
-    
-})();
+            document.body.classList.toggle("js-burger-menu-is-open");
+            
+            if(!this.classList.contains("js-burger-is-open")){
+                this.classList.add("js-burger-is-open");
+            }else if(this.classList.contains("js-burger-is-open")){
+                this.classList.remove("js-burger-is-open");
+            }
+
+        })
+    }
+
+}
+
+if(document.querySelector(".js-burger")){
+    new Burger(document.querySelector(".js-burger"));
+};

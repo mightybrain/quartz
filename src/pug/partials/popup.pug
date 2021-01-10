@@ -6,7 +6,7 @@ section.hidden-block
             form.form
                 div.form__group
                     input.form__search-input(placeholder="Поиск по сайту" type="text" autocomplete="off" data-req)
-                    button.form__search-submit-button.js-submit
+                    button.form__search-submit-button(type="submit")
                         svg(width="22" height="22")
                             use(xlink:href="#search-icon")
         div.popup.hidden-block__popup(data-popup="feedback")
@@ -26,17 +26,17 @@ section.hidden-block
                                 |Ваше имя
                                 span.form__req-sign
                                     |*
-                            input.form__input(type="text" data-req name="name" autocomplete="off")
+                            input.form__input(type="text" data-req data-content="name" autocomplete="off")
                         div.form__group
                             label.form__label
                                 |Электронная почта
                                 span.form__req-sign
                                     |*
-                            input.form__input(type="text" data-req name="mail" autocomplete="off")
+                            input.form__input(type="text" data-req data-content="mail" autocomplete="off")
                         div.form__group
                             label.form__label
                                 |Телефон
-                            input.form__input(type="text" name="phone" autocomplete="off")
+                            input.form__input(type="text" data-content="phone" autocomplete="off")
                         div.form__group
                             label.form__label
                                 |Название компании
@@ -48,5 +48,5 @@ section.hidden-block
                                 span.form__req-sign
                                     |*
                             textarea.form__textarea(data-req data-type="textarea" autocomplete="off")
-                button.common__button.common__button--white.form__submit-button.js-submit
+                button.common__button.common__button--white.form__submit-button(type="submit")
                     |Отправить  

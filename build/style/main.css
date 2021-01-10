@@ -78,7 +78,7 @@ svg circle {
 .tabs__button:hover {
   border-bottom: 1px dotted transparent;
 }
-.tabs__button--active {
+.js-active-tab {
   color: #113e92;
   border-bottom: 1px dotted transparent;
   cursor: default;
@@ -1293,6 +1293,7 @@ body.js-burger-menu-is-open .burger__cross::after {
   display: flex;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  height: auto;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -1310,8 +1311,11 @@ body.js-burger-menu-is-open .burger__cross::after {
   align-items: center;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 100px 0;
   background-color: #000;
   overflow: hidden;
 }
@@ -1614,6 +1618,9 @@ body.js-burger-menu-is-open .burger__cross::after {
     margin: 0 0 20px 0;
   }
 }
+.catalogue__composition {
+  margin: 0 auto;
+}
 @media (max-width: 600px) {
   .catalogue__composition {
     display: none;
@@ -1787,11 +1794,8 @@ tr.js-is-highlighted td:not(:nth-last-child(1)) {
     display: block;
   }
 }
-.catalogue--inner .composition__table-wrapper {
+.catalogue--inner .composition__table-wrapper.js-content-is-hidden {
   display: none;
-}
-.catalogue--inner .composition__table-wrapper.js-content-is-visible {
-  display: block;
 }
 .product-preview {
   -webkit-box-sizing: border-box;
@@ -3412,7 +3416,7 @@ body.js-popup-is-open .hidden-block__close-button {
   -webkit-transition: opacity 0.5s 1s ease, visibility 0s 1s linear;
   transition: opacity 0.5s 1s ease, visibility 0s 1s linear;
 }
-.hidden-block__popup.js-popup-is-active {
+.hidden-block__popup.js-active-popup {
   display: block;
   opacity: 1;
   visibility: visible;

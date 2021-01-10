@@ -1,14 +1,5 @@
-(function(){
-
-    const mapContainer = document.querySelector(".js-map-container");
-    const mapButton = document.querySelector(".js-map-button");
-
-    if(mapContainer && mapButton){
-        mapButton.addEventListener("click", changeMapState);
-    };
-
-    function changeMapState(){
-        mapContainer.classList.toggle("js-map-is-visible");
-    };
-
-})();
+if(document.querySelector(".js-map-container") && document.querySelector(".js-map-button")){
+    document.querySelector(".js-map-button").addEventListener("click", function(){
+        document.querySelector(".js-map-container").classList.toggle("js-map-is-visible");
+    })
+}

@@ -1,27 +1,26 @@
-(function(){
+class ProductPreview{
+    constructor(elem){
+        this.elem = elem;
+        this.init();
+    }
 
-    const products = document.querySelectorAll(".js-product-preview");
-    
-    if(products){
+    init(){
+        this.elem.addEventListener("mouseenter", this.changeCompState);
+        this.elem.addEventListener("mouseleave", this.changeCompState);
+    }
 
-        for(let i = 0; i < products.length; i++){
-            products[i].addEventListener("mouseenter", changeCompState);
-            products[i].addEventListener("mouseleave", changeCompState)
-        };
+    changeCompState(){
+        let comp = document.querySelectorAll("[data-composition=" + this.getAttribute("data-product") + "]");
+        if(comp){
+            comp.forEach(function(item){
+                item.classList.toggle("js-is-highlighted");
+            })    
+        }    
+    }
+}
 
-    };
-
-    function changeCompState(){
-
-        let hoveredProduct = this.getAttribute("data-product");
-        let productComp = document.querySelectorAll("[data-composition=" + hoveredProduct + "]");
-        
-        if(productComp){
-            for(let i = 0; i < productComp.length;i++ ){
-                productComp[i].classList.toggle("js-is-highlighted");
-            };
-        };
-        
-    };
-    
-})();
+if(document.querySelector(".js-product-preview")){
+    document.querySelectorAll(".js-product-preview").forEach(function(item){
+        new ProductPreview(item);
+    })
+}

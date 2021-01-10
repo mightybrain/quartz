@@ -1,42 +1,22 @@
-(function(){
+function showPopup(){
 
-    const popupButtons = document.querySelectorAll(".js-popup-button");
+    let targetPopup = document.querySelector("[data-popup=" + this.getAttribute("data-popup-for") + "]");
 
-    if(popupButtons){
-
-        for(let i = 0; i < popupButtons.length; i++){
-            popupButtons[i].addEventListener("click", showPopup);
-        };
-
+    if(targetPopup){
+        document.body.classList.add("js-popup-is-open");
+        targetPopup.classList.add("js-active-popup");
     };
+}
 
-    function showPopup(){
+function hidePopup(){
+    document.querySelector(".js-active-popup").classList.remove("js-active-popup");
+    document.body.classList.remove("js-popup-is-open");
+}
 
-        let targetPopupName = this.getAttribute("data-for");
-        let targetPopup = document.querySelector("[data-popup=" + targetPopupName + "]");
+if(document.querySelector(".js-popup-button") && document.querySelector(".js-close-popup-button")){
 
-        if(targetPopup){
-            document.body.classList.add("js-popup-is-open");
-            targetPopup.classList.add("js-popup-is-active");
-        };
-
-    };
-
-    const closePopupButton = document.querySelector(".js-close-popup-button");
-
-    if(closePopupButton){
-        closePopupButton.addEventListener("click", closePopup);
-    };
-
-    function closePopup(){
-
-        let openedPopup = document.querySelector(".js-popup-is-active");
-
-        if(openedPopup){
-            openedPopup.classList.remove("js-popup-is-active");
-        };
-        
-        document.body.classList.remove("js-popup-is-open");
-    };
-
-})();
+    document.querySelectorAll(".js-popup-button").forEach(function(item){
+        item.addEventListener("click", showPopup);
+    });
+    document.querySelector(".js-close-popup-button").addEventListener("click", hidePopup);
+}

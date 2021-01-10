@@ -6,14 +6,6 @@
 //= partials/burger.js
 
 
-// Интро для главной страницы
-// partials/intro.js
-
-
-// Кастомные селекты
-// partials/choices-initialize.js
-
-
 // Яндекс-карта
 //= partials/map-initialize.js
 

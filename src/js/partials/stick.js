@@ -1,114 +1,117 @@
-(function(){
+let currentScroll = window.pageYOffset;
 
-    let currentScroll = window.pageYOffset;
-    let scrollDelta;
+function checkScrollDirection(){
+    if(window.pageYOffset > currentScroll){
+        currentScroll = window.pageYOffset;
+        return "scroll-down";
 
-    function checkScrollDirection(){
+    }else if(window.pageYOffset < currentScroll){
+        currentScroll = window.pageYOffset;
+        return "scroll-up";
+    }
+    return "no-scroll";
+}
 
-        let newScroll = window.pageYOffset;
+class StickyElem{
+    constructor(container){
+        this.container = container;
+        this.elem = container.querySelector(".js-sticky");
+    }
+}
 
-        if(newScroll > currentScroll){
-            currentScroll = window.pageYOffset;
-            scrollDelta = -1;
+if(document.querySelector(".js-sticky-container")){
+    window.stickyElems = [];
+    document.querySelectorAll(".js-sticky-container").forEach(function(item){
+        window.stickyElems.push(new StickyElem(item));
+    })
 
-        }else if(newScroll < currentScroll){
-            currentScroll = window.pageYOffset;
-            scrollDelta = 1;
+    window.stickyEnable = false;
+    checkSticky();
 
-        }else if(newScroll == currentScroll){
-            scrollDelta = 0;
-        };
+    window.addEventListener("load", function(){
+        if(stickyEnable){
+            window.stickyElems.forEach(function(item){
+                stick(item);
+            })
+        }
+    })
 
-    };
+    window.addEventListener("scroll", function(){
+        if(stickyEnable){
+            let scrollDirection = checkScrollDirection();
+            window.stickyElems.forEach(function(item){
+                stick(item, scrollDirection);
+            })
+        }
+    })
 
-    const stickyContainer = document.querySelector(".js-sticky-container");
-    const stickyElement = document.querySelector(".js-sticky");
-    
-    let stickyEnable = false;
+    window.addEventListener("resize", function(){
+        checkSticky();
+        if(stickyEnable){
+            window.stickyElems.forEach(function(item){
+                stick(item);
+            })        
+        }
+    })
 
-    if(stickyContainer && stickyElement){
-        window.addEventListener("scroll", function(){
+}
 
-            if(stickyEnable){
-                stick(stickyContainer, stickyElement);
-            };
-    
-        });
-    
-        window.addEventListener("load", checkSticky);
-        window.addEventListener("resize", checkSticky);
+function checkSticky(){
+    if(document.documentElement.clientWidth > 600){
+        window.stickyEnable = true;
+
+    }else{
+        window.stickyEnable = false;
+        window.stickyElems.forEach(function(item){
+            item.elem.style.position = "static";
+        })
+    }
+}
+
+function stick(stickyElem, scrollDirection){
+    if(scrollDirection === "scroll-down"){
+
+        if(stickyElem.container.getBoundingClientRect().top < 0 && stickyElem.container.getBoundingClientRect().bottom > stickyElem.elem.getBoundingClientRect().bottom){
+            stickyElem.elem.style.position = "fixed";
+            stickyElem.elem.style.top = 0;
+            stickyElem.elem.style.bottom = "auto";
+
+        }else if(stickyElem.container.getBoundingClientRect().top < 0 && stickyElem.container.getBoundingClientRect().bottom < stickyElem.elem.getBoundingClientRect().bottom){
+            stickyElem.elem.style.position = "absolute";
+            stickyElem.elem.style.top = "auto";
+            stickyElem.elem.style.bottom = 0;
+        }
+
+    }else if(scrollDirection === "scroll-up"){
+
+        if(stickyElem.container.getBoundingClientRect().bottom > document.documentElement.clientHeight && stickyElem.container.getBoundingClientRect().top < stickyElem.elem.getBoundingClientRect().top){
+            stickyElem.elem.style.position = "fixed";
+            stickyElem.elem.style.top = 0;
+            stickyElem.elem.style.bottom = "auto";
+
+        }else if(stickyElem.container.getBoundingClientRect().bottom > document.documentElement.clientHeight && stickyElem.container.getBoundingClientRect().top > stickyElem.elem.getBoundingClientRect().top){
+            stickyElem.elem.style.position = "absolute";
+            stickyElem.elem.style.top = 0;
+            stickyElem.elem.style.bottom = "auto";
+        }
+      
+    }else if(!scrollDirection){
+
+        if(stickyElem.container.getBoundingClientRect().top < 0 && stickyElem.container.getBoundingClientRect().bottom > document.documentElement.clientHeight){
+            stickyElem.elem.style.position = "fixed";
+            stickyElem.elem.style.top = 0;
+            stickyElem.elem.style.bottom = "auto";
+
+        }else if(stickyElem.container.getBoundingClientRect().top > 0){
+            stickyElem.elem.style.position = "absolute";
+            stickyElem.elem.style.top = 0;
+            stickyElem.elem.style.bottom = "auto";
+            
+        }else if(stickyElem.container.getBoundingClientRect().bottom < document.documentElement.clientHeight){
+            stickyElem.elem.style.position = "absolute";
+            stickyElem.elem.style.top = "auto";
+            stickyElem.elem.style.bottom = 0;
+        }
         
-    };
-
-
-    function checkSticky(){
-
-        if(document.documentElement.clientWidth > 600){
-            stickyEnable = true;
-            stick(stickyContainer, stickyElement);
-
-        }else if(document.documentElement.clientWidth < 600){
-            stickyEnable = false;
-            stickyElement.style.position = "static";
-        };
-
-    };
-
-    function stick(container, element){
-
-        checkScrollDirection();
-
-        if(container && element){
-
-            if(scrollDelta < 0){
-
-                if(container.getBoundingClientRect().top < 0 && container.getBoundingClientRect().bottom > element.getBoundingClientRect().bottom){
-
-                    element.style.position = "fixed";
-                    element.style.top = 0;
-                    element.style.bottom = "auto";
-
-                }else if(container.getBoundingClientRect().top < 0 && container.getBoundingClientRect().bottom < element.getBoundingClientRect().bottom){
-                    element.style.position = "absolute";
-                    element.style.top = "auto";
-                    element.style.bottom = 0;
-                };
-
-            }else if(scrollDelta > 0){
-
-                if(container.getBoundingClientRect().bottom > document.documentElement.clientHeight && container.getBoundingClientRect().top < element.getBoundingClientRect().top){
-
-                    element.style.position = "fixed";
-                    element.style.top = 0;
-                    element.style.bottom = "auto";
-
-                }else if(container.getBoundingClientRect().bottom > document.documentElement.clientHeight && container.getBoundingClientRect().top > element.getBoundingClientRect().top){
-                    element.style.position = "absolute";
-                    element.style.top = 0;
-                    element.style.bottom = "auto";
-                };
-              
-            }else if(scrollDelta == 0){
-
-                if(container.getBoundingClientRect().top < 0 && container.getBoundingClientRect().bottom > document.documentElement.clientHeight){
-
-                    element.style.position = "fixed";
-                    element.style.top = 0;
-                    element.style.bottom = "auto";
-
-                }else if(container.getBoundingClientRect().top > 0){
-                    element.style.position = "absolute";
-                    element.style.top = 0;
-                    element.style.bottom = "auto";
-                    
-                }else if(container.getBoundingClientRect().bottom < document.documentElement.clientHeight){
-                    element.style.position = "absolute";
-                    element.style.top = "auto";
-                    element.style.bottom = 0;
-                };
-                
-            };
-        };
-    };
-
-})();
+    }
+}

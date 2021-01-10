@@ -5,7 +5,6 @@ html(lang="ru")
         meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1")
         link(rel="stylesheet" href="style/normalize.css" type="text/css")
         link(rel="stylesheet" href="style/swiper.css" type="text/css")
-        link(rel="stylesheet" href="style/choices.css" type="text/css")
         link(rel="stylesheet" href="style/main.css" type="text/css")
         title Русский Кварц. Контактная информация
     body.content
@@ -28,7 +27,7 @@ html(lang="ru")
                                     |中文
                         a.head__phone(href="tel:")
                             |+7 (35151) 4-38-45
-                        button.head__feedback-button.js-popup-button(data-for="feedback")
+                        button.head__feedback-button.js-popup-button(data-popup-for="feedback")
                             |Связаться с нами
                     div.head__row
                         nav.main-nav
@@ -69,10 +68,10 @@ html(lang="ru")
                                     a.main-nav__link(href="")
                                         |Контактная информация
                                 li.main-nav__item
-                                    button.main-nav__search-button.js-popup-button(data-for="search")
+                                    button.main-nav__search-button.js-popup-button(data-popup-for="search")
                                         svg(width="12" height="12")
                                             use(xlink:href="#search-icon")
-            div.burger.head__burger
+            div.burger.head__burger.js-burger
                 div.burger__default
                     div.burger__stroke
                 div.burger__cross
@@ -154,17 +153,17 @@ html(lang="ru")
                                             |Ваше имя
                                             span.form__req-sign
                                                 |*
-                                        input.form__input(type="text" data-req name="name" autocomplete="off")
+                                        input.form__input(type="text" data-req data-content="name" autocomplete="off")
                                     div.form__group
                                         label.form__label
                                             |Электронная почта
                                             span.form__req-sign
                                                 |*
-                                        input.form__input(type="text" data-req name="mail" autocomplete="off")
+                                        input.form__input(type="text" data-req data-content="mail" autocomplete="off")
                                     div.form__group
                                         label.form__label
                                             |Телефон
-                                        input.form__input(type="text" name="phone" autocomplete="off")
+                                        input.form__input(type="text" data-content="phone" autocomplete="off")
                                     div.form__group
                                         label.form__label
                                             |Название компании
@@ -176,7 +175,7 @@ html(lang="ru")
                                             span.form__req-sign
                                                 |*
                                         textarea.form__textarea(data-req data-type="textarea" autocomplete="off")
-                            button.common__button.common__button--white.form__submit-button.js-submit
+                            button.common__button.common__button--white.form__submit-button(type="submit")
                                 |Отправить 
                     
         //= partials/footer.pug

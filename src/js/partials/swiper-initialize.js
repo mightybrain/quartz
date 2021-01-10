@@ -1,80 +1,68 @@
-(function(){
+if(document.querySelector(".js-main-slider")){
 
-    // Основной слайдер на главной странице
-    if(document.querySelector(".js-main-slider")){
+    window.mainSlider = new Swiper(".js-main-slider", {
+        init: false,
+        speed: 1200,
+        loop: false,
+        direction: "horizontal",
+        watchOverflow: true,
+        navigation: {
+            nextEl: ".js-main-slider-arrow-right",
+            prevEl: ".js-main-slider-arrow-left",
+        },
+    })
 
-        let mainSwiper = new Swiper(".js-main-slider", {
-            init: false,
+    if(mainSlider.wrapperEl.children.length > 1){
+        mainSlider.params.loop = true;
+        mainSlider.init();
+    }else{
+        mainSlider.init();
+    }
+}
+
+if(document.querySelector(".js-row-slider")){
+
+    document.querySelectorAll(".js-row-slider").forEach(function(item){
+        new Swiper(item, {
             speed: 1200,
-            loop: false,
-            direction: "horizontal",
-            watchOverflow: true,
-            navigation: {
-                nextEl: ".js-main-slider-arrow-right",
-                prevEl: ".js-main-slider-arrow-left",
-            },
-        });
-    
-        if(mainSwiper.wrapperEl.children.length > 1){
-            mainSwiper.params.loop = true;
-            mainSwiper.init();
-        }else{
-            mainSwiper.init();
-        };
-
-    };
-
-    // Широкий слайдер с несколькими видимыми картинками
-    const rowSliders = document.querySelectorAll(".js-row-slider");
-
-    if(rowSliders){
-
-        for(let i = 0; i < rowSliders.length; i++){
-            let rowSwiper = new Swiper(rowSliders[i], {
-                speed: 1200,
-                loop: true,
-                direction: "horizontal",
-                slidesPerView: "auto",
-                slidesPerColumn: 1,
-            });
-        };
-    };
-
-    // Слайдер продукции
-    let productsSwiperEnable = false;
-    let productsSwiper;
-
-    function productsSwiperInit(){
-
-        productsSwiper = new Swiper(".js-products-slider", {
-            speed: 1200,
+            loop: true,
             direction: "horizontal",
             slidesPerView: "auto",
             slidesPerColumn: 1,
-        });
+        })
+    })
+}
 
-        productsSwiper.slideTo((productsSwiper.wrapperEl.children.length / 2) - 1);
-        productsSwiperEnable = true;
-    };
+if(document.querySelector(".js-products-slider")){
+    window.prodSliderEnable = false;
+    window.prodSlider;
 
     window.addEventListener("load", function(){
-
-        if(document.documentElement.clientWidth > 600 && document.querySelector(".js-products-slider") && !productsSwiperEnable){
-            productsSwiperInit();
-        };
-
-    });
+        if(document.documentElement.clientWidth > 600){
+            prodSliderInit();
+            prodSliderEnable = true;
+        }
+    })
 
     window.addEventListener("resize", function(){
+        if(document.documentElement.clientWidth < 600 && prodSliderEnable){
+            prodSlider.destroy();
+            prodSliderEnable = false;
+        }else if(document.documentElement.clientWidth > 600 && !prodSliderEnable){
+            prodSliderInit();
+            prodSliderEnable = true;
+        }
+    })
+}
 
-        if(document.documentElement.clientWidth < 600 && productsSwiperEnable){
-            productsSwiper.destroy();
-            productsSwiperEnable = false;
+function prodSliderInit(){
 
-        }else if(document.documentElement.clientWidth > 600 && document.querySelector(".js-products-slider") && !productsSwiperEnable){
-            productsSwiperInit();
-        };
+    prodSlider = new Swiper(".js-products-slider", {
+        speed: 1200,
+        direction: "horizontal",
+        slidesPerView: "auto",
+        slidesPerColumn: 1,
+    })
 
-    });
-    
-})();
+    prodSlider.slideTo((prodSlider.wrapperEl.children.length / 2) - 1);
+}
